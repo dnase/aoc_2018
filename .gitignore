@@ -13,3 +13,4 @@ pom.xml.asc
 .nrepl-port
 .cpcache/
 py_aoc/input_*
+go_aoc/input_*
