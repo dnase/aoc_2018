@@ -33,7 +33,7 @@ def levenshtein(s1, s2):
 def intersection(s1, s2):
     if len(s1) == len(s2):
         outbuff = ""
-        for i in range(0, len(s1) - 1):
+        for i in range(len(s1)):
             if s1[i] == s2[i]:
                 outbuff += s1[i]
         return outbuff
