@@ -30,6 +30,15 @@ def levenshteinDistance(s1, s2):
         distances = distances_
     return distances[-1]
 
+def intersection(s1, s2):
+    if len(s1) == len(s2):
+        outbuff = ""
+        for i in range(0, len(s1) - 1):
+            if s1[i] == s2[i]:
+                outbuff += s1[i]
+        return outbuff
+    return false
+
 for s in seq:
     count2 += check2(s)
     count3 += check3(s)
@@ -39,5 +48,6 @@ print("Q1: %d" % (count2 * count3))
 for s in seq:
     for subs in seq:
         if levenshteinDistance(s, subs) == 1:
-            print("Q2: %s - %s" % (s, subs))
+            res = intersection(s, subs)
+            print("Q2: %s" % res)
             quit()
