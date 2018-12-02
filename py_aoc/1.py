@@ -1,4 +1,4 @@
-# save input list as "input_1" - one number per line
+# save input list as "data/input_1" - one number per line
 seq = [int(s) for s in open("../data/input_1").readlines()]
 
 # question 1
