@@ -1,6 +1,5 @@
-import re
 # save input list as "data/input_2" - one entry per line
-seq = open("../data/input_2").readlines()
+seq = [s.strip() for s in open("../data/input_2").readlines()]
 count2 = 0
 count3 = 0
 
@@ -40,4 +39,5 @@ print("Q1: %d" % (count2 * count3))
 for s in seq:
     for subs in seq:
         if levenshteinDistance(s, subs) == 1:
-            print("%s - %s" % (s, subs))
+            print("Q2: %s - %s" % (s, subs))
+            quit()
