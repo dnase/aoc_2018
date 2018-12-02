@@ -1,5 +1,5 @@
 # save input list as "input_1" - one number per line
-seq = [int(s) for s in open("input_1").readlines()]
+seq = [int(s) for s in open("../data/input_1").readlines()]
 
 # question 1
 print("Question 1: %d" % sum(seq))

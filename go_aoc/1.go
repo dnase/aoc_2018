@@ -49,7 +49,7 @@ func contains(s []int, e int) bool {
 func main() {
 	current_freq := 0
 	previous_freqs := []int{0}
-	freqs, e := readLines("input_1")
+	freqs, e := readLines("../data/input_1")
 	if e != nil {
 		fmt.Printf("failed to read file")
 		os.Exit(3)
