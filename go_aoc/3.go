@@ -36,11 +36,7 @@ func readLines(path string) ([]string, error) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		buff := scanner.Text()
-		//if e != nil {
-			// ???
-		//} else {
-			lines = append(lines, buff)
-		//}
+		lines = append(lines, buff)
 	}
 	return lines, scanner.Err()
 }
