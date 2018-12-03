@@ -58,7 +58,6 @@ func get_rectangle(s string) rectangle {
 }
 
 func get_overlap(rectangles []rectangle) int {
-  pointmap = make(map[coordinate]int)
   for _, r := range rectangles {
     for i := r.x; i < (r.x + r.w); i++ {
       for j := r.y; j < (r.y + r.h); j++ {
@@ -96,6 +95,7 @@ func get_no_overlap_id(rectangles []rectangle) string {
 }
 
 func main() {
+  pointmap = make(map[coordinate]int)
 	seq, e := readLines("../data/input_3")
 	if e != nil {
 		fmt.Printf("failed to read file")
