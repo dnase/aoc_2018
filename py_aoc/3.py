@@ -25,9 +25,9 @@ def id_no_overlap(seq, overlaps):
     d = [parse(line) for line in seq]
     for id, x, y, w, h in d:
         valid = True
-        for i in range(w):
-            for j in range(h):
-                if overlaps[(i + x, j + y)] != 1:
+        for i in range(x, x + w):
+            for j in range(y, y + h):
+                if overlaps[(i, j)] != 1:
                     valid = False
                     break
             if not valid:
