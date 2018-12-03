@@ -11,6 +11,7 @@ import (
 )
 
 type rectangle struct {
+  overlap bool
   id string
   x int
   y int
@@ -50,21 +51,19 @@ func get_rectangle(s string) rectangle {
   y, _ := strconv.Atoi(strings.Replace(coordparts[1], ":", "", -1))
   w, _ := strconv.Atoi(dimparts[0])
   h, _ := strconv.Atoi(dimparts[1])
-  return rectangle{id: id, x: x, y: y, w: w, h: h}
+  return rectangle{overlap: false, id: id, x: x, y: y, w: w, h: h}
 }
 
 func get_overlap(rectangles []rectangle) int {
+  buff := 0
   for _, r := range rectangles {
     for i := r.x; i < (r.x + r.w); i++ {
       for j := r.y; j < (r.y + r.h); j++ {
         pointmap[coordinate{x: i, y: j}] += 1
+        if pointmap[coordinate{x: i, y: j}] == 2 {
+          buff += 1
+        }
       }
-    }
-  }
-  buff := 0
-  for _, v := range pointmap {
-    if v > 1 {
-      buff += 1
     }
   }
   return buff
