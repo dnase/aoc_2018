@@ -1,5 +1,9 @@
-# save input list as "data/input_2" - one entry per line
-seq = [s.strip() for s in open("../data/input_2").readlines()]
+from util import parse_file
+
+def parsefunc(s):
+    return s.strip()
+
+seq = parse_file("../data/input_2", parsefunc)
 count2 = 0
 count3 = 0
 

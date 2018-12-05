@@ -1,7 +1,10 @@
+from util import parse_file
 from sets import Set
 
-# save input list as "data/input_1" - one number per line
-seq = [int(s) for s in open("../data/input_1").readlines()]
+def parsefunc(s):
+    return int(s)
+
+seq = parse_file("../data/input_1", parsefunc)
 
 # question 1
 print("Question 1: %d" % sum(seq))

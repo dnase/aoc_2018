@@ -1,4 +1,5 @@
 import operator
+from util import parse_file
 from datetime import datetime
 from collections import defaultdict
 
@@ -16,13 +17,15 @@ def get_top_minute(guard_id, seq):
         if str(guard_id) in act:
             [ts1, _] = get_data(seq[i+1])
             [ts2, _] = get_data(seq[i+2])
-            #guards[guard_id] += ((ts2 - ts1).seconds / 60)
             for i in range(ts1.minute, ts2.minute):
                 minutes[i] += 1
             pass
             pass
 
-seq = sorted([s.strip() for s in open("../data/input_4").readlines()], key=lambda x: datetime.strptime(x[1:17], "%Y-%m-%d %H:%M"))
+def parsefunc(s):
+    return s.strip()
+
+seq = sorted(parse_file("../data/input_4", parsefunc), key=lambda x: datetime.strptime(x[1:17], "%Y-%m-%d %H:%M"))
 
 for i, s in enumerate(seq):
     [ts, act] = get_data(s)
