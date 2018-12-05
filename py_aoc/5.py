@@ -4,9 +4,6 @@ from util import parse_file
 def parsefunc(s):
     return s.strip()
 
-def str_delete(s, idx1, idx2):
-    return s[:idx1] + s[idx2+1:]
-
 seq = parse_file("../data/input_5", parsefunc)[0]
 
 # part 1
