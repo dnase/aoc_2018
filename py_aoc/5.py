@@ -1,6 +1,9 @@
 import operator
 from util import parse_file
 
+global CHARSET
+CHARSET = "abcdefghijklmnopqrstuvwxyz"
+
 def parsefunc(s):
     return s.strip()
 
@@ -8,7 +11,7 @@ seq = parse_file("../data/input_5", parsefunc)[0]
 
 def reduce_sequence(seq):
     check_len = len(seq)
-    for c in "abcdefghijklmnopqrstuvwxyz":
+    for c in CHARSET:
 		seq = seq.replace(c+c.upper(),"").replace(c.upper()+c,"")
     seq_len = len(seq)
     return ((seq_len != check_len), seq)
@@ -24,7 +27,7 @@ def part1(seq):
 # part 2
 def part2(seq):
     lengths = {}
-    for c in "abcdefghijklmnopqrstuvwxyz":
+    for c in CHARSET:
         buff = seq.replace(c,"").replace(c.upper(),"")
         recur = True
         while recur:
