@@ -27,7 +27,7 @@ def get_grid(seq):
                     g[(x, y)] = n
     return (g, g2)
 
-def part1(g):
+def part1(g, seq):
     bounds = set(g[(x, max(zip(*seq)[1]))] for x in range(max(zip(*seq)[0]))).union(set(g[(x, 0)] for x in range(max(zip(*seq)[0])))).union(set(g[(max(zip(*seq)[0]), y)] for y in range(max(zip(*seq)[1])))).union(set(g[(0, y)] for y in range(max(zip(*seq)[1]))))
     for i in Counter(g.values()).most_common():
         if i[0] not in bounds:
@@ -40,5 +40,5 @@ seq = parse_file("../data/input_6", parsefunc)
 
 grid = get_grid(seq)
 
-print("Q1: %d" % part1(grid[0]))
+print("Q1: %d" % part1(grid[0], seq))
 print("Q2: %d" % part2(grid[1]))
