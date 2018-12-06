@@ -8,11 +8,14 @@ def parsefunc(s):
 def manhattan_distance(x1, x2, y1, y2):
     return (abs(x1 - x2) + abs(y1 - y2))
 
+def get_range(seq, idx):
+    return (max(zip(*seq)[idx])+2)
+
 def get_grid(seq):
     g = defaultdict(lambda: -1)
     g2 = {}
-    for x in range(max(zip(*seq)[0])+2):
-        for y in range(max(zip(*seq)[1])+2):
+    for x in range(get_range(seq, 0)):
+        for y in range(get_range(seq, 1)):
             g2[(x, y)] = sum(manhattan_distance(x, i, y, j) for i, j in seq) < 10000
             mindistance = min(manhattan_distance(x, i, y, j) for i, j in seq)
             for n, (i, j) in enumerate(seq):
@@ -37,6 +40,5 @@ seq = parse_file("../data/input_6", parsefunc)
 
 grid = get_grid(seq)
 
-print(part1(grid[0]))
-
-print(part2(grid[1]))
+print("Q1: %d" % part1(grid[0]))
+print("Q2: %d" % part2(grid[1]))
