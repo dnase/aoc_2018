@@ -18,11 +18,11 @@ def reduce_sequence(seq):
 
 # part 1
 def part1(seq):
-    buff1 = seq
+    buff = seq
     recur = True
     while recur:
-        (recur, buff1) = reduce_sequence(buff1)
-    return len(buff1)
+        (recur, buff) = reduce_sequence(buff)
+    return len(buff)
 
 # part 2
 def part2(seq):
