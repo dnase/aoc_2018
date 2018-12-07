@@ -1,12 +1,5 @@
 from util import parse_file
 
-def parsefunc(s):
-    return s.strip()
-
-seq = parse_file("../data/input_2", parsefunc)
-count2 = 0
-count3 = 0
-
 def check2(instr):
     for s in instr:
         if instr.count(s) == 2:
@@ -43,15 +36,24 @@ def intersection(s1, s2):
         return outbuff
     return false
 
-for s in seq:
-    count2 += check2(s)
-    count3 += check3(s)
+def part1(seq):
+    count2 = 0
+    count3 = 0
+    for s in seq:
+        count2 += check2(s)
+        count3 += check3(s)
+    return (count2 * count3)
 
-print("Q1: %d" % (count2 * count3))
+def part2(seq):
+    for s in seq:
+        for subs in seq:
+            if levenshtein(s, subs) == 1:
+                return intersection(s, subs)
 
-for s in seq:
-    for subs in seq:
-        if levenshtein(s, subs) == 1:
-            res = intersection(s, subs)
-            print("Q2: %s" % res)
-            quit()
+def parsefunc(s):
+    return s.strip()
+
+seq = parse_file("../data/input_2", parsefunc)
+
+print("Q1: %d" % part1(seq))
+print("Q2: %s" % part2(seq))
