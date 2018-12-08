@@ -1,4 +1,3 @@
-from operator import itemgetter
 from sets import Set
 from util import parse_file
 from collections import defaultdict
@@ -57,7 +56,7 @@ def part1(seq):
 def part2(seq):
     return thread_scheduler(part1(seq), seq)
 
-seq = Set(parse_file("../data/input_7", parsefunc))
+seq = set(parse_file("../data/input_7", parsefunc))
 
 print("Q1: %s" % part1(seq))
 print(part2(seq))
