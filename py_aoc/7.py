@@ -47,7 +47,6 @@ def thread_scheduler(order, seq):
             time = min([t for t in threads if t > time])
     return max(threads)
 
-
 def part1(seq):
     edges = get_edges(seq)
     buff = sorted(set(zip(*seq)[0] + zip(*seq)[1]))
