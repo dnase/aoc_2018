@@ -58,4 +58,4 @@ def part2(seq):
 seq = set(parse_file("../data/input_7", parsefunc))
 
 print("Q1: %s" % part1(seq))
-print(part2(seq))
+print("Q2: %d" % part2(seq))
