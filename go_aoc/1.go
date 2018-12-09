@@ -7,10 +7,13 @@ import (
 	"os"
 	"strconv"
 )
-type convert func(string) int
 
-func parsefunc(s string) int {
-	buff, _ := strconv.Atoi(s)
+func parsefunc(s []string) []int {
+	buff := []int{}
+	for _, c := range s {
+		d, _ := strconv.Atoi(c)
+		buff = append(buff, d)
+	}
 	return buff
 }
 
@@ -33,8 +36,8 @@ func contains(s []int, e int) bool {
 
 func main() {
 	current_freq := 0
-	previous_freqs := []int{0}
-	freqs := readLines("../data/input_1", parsefunc).([]int)
+	previous_freqs := []int{}
+	freqs := parsefunc(readLines("../data/input_1"))
 	// Question 1
 	fmt.Printf("Question 1: %d\n", sum(freqs))
 	// Question 2

@@ -5,18 +5,17 @@ import (
 	"os"
 )
 
-func readLines(path string, parsefunc convert) interface{} {
+func readLines(path string) []string {
 	file, err := os.Open(path)
 	if err != nil {
 		return nil
 	}
 	defer file.Close()
 
-	var lines []int
+	var lines []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		buff := parsefunc(scanner.Text())
-		lines = append(lines, buff)
+		lines = append(lines, scanner.Text())
 	}
 	return lines
 }
