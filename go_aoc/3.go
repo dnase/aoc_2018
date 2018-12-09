@@ -3,10 +3,8 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
   "strings"
-	"os"
 	"strconv"
 )
 
@@ -26,21 +24,6 @@ type coordinate struct {
 
 var pointmap map[coordinate]int
 
-func readLines(path string) ([]string, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	var lines []string
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		buff := scanner.Text()
-		lines = append(lines, buff)
-	}
-	return lines, scanner.Err()
-}
 
 func get_rectangle(s string) rectangle {
   parts := strings.Split(s, " ")
@@ -91,11 +74,7 @@ func get_no_overlap_id(rectangles []rectangle) string {
 
 func main() {
   pointmap = make(map[coordinate]int)
-	seq, e := readLines("../data/input_3")
-	if e != nil {
-		fmt.Printf("failed to read file")
-		os.Exit(3)
-	}
+	seq := readLines("../data/input_3")
   rectangles := []rectangle{}
   for _, s := range seq {
     rectangles = append(rectangles, get_rectangle(s))
