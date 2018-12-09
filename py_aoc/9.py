@@ -4,22 +4,19 @@ def cj(numplayers, total_marbles):
     marbles = deque([0])
     current_marble = 0
     players = defaultdict(int)
-    player = 0
     total_marbles += 1
     for marble in range(1, total_marbles):
         if marble % 23 == 0:
-            players[player] += marble
+            players[(marble - 1) % numplayers] += marble
             t = ((current_marble - 7) % len(marbles))
             marbles.rotate(-t)
-            players[player] += marbles.popleft()
+            players[(marble - 1) % numplayers] += marbles.popleft()
             marbles.rotate(t - 1)
             marbles.rotate(7)
         else:
             marbles.append(marble)
             marbles.rotate(-1)
         current_marble = len(marbles) - 2
-        player += 1
-        player %= numplayers
     return(max(players.values()))
 
 def part1():
