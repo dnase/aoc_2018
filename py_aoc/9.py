@@ -1,6 +1,6 @@
 from collections import defaultdict, deque
 
-def part1(numplayers, total_marbles):
+def cj(numplayers, total_marbles):
     marbles = deque([0])
     current_marble = 0
     players = defaultdict(int)
@@ -22,9 +22,11 @@ def part1(numplayers, total_marbles):
         player %= numplayers
     return(max(players.values()))
 
-def part2(numplayers, total_marbles):
-    return part1(numplayers, total_marbles)
+def part1():
+    return cj(424, 71144)
 
+def part2():
+    return cj(424, 7114400)
 
-print("P1: ", part1(424, 71144))
-print("P2: ", part2(424, 7114400))
+print("P1: ", part1())
+print("P2: ", part2())
