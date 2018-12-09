@@ -3,30 +3,15 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"os"
 	"strconv"
 )
+type convert func(string) int
 
-func readLines(path string) ([]int, error) {
-	file, err := os.Open(path)
-	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	var lines []int
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		buff, e := strconv.Atoi(scanner.Text())
-		if e != nil {
-			// ???
-		} else {
-			lines = append(lines, buff)
-		}
-	}
-	return lines, scanner.Err()
+func parsefunc(s string) int {
+	buff, _ := strconv.Atoi(s)
+	return buff
 }
 
 func sum(r []int) int {
@@ -49,11 +34,7 @@ func contains(s []int, e int) bool {
 func main() {
 	current_freq := 0
 	previous_freqs := []int{0}
-	freqs, e := readLines("../data/input_1")
-	if e != nil {
-		fmt.Printf("failed to read file")
-		os.Exit(3)
-	}
+	freqs := readLines("../data/input_1", parsefunc).([]int)
 	// Question 1
 	fmt.Printf("Question 1: %d\n", sum(freqs))
 	// Question 2
