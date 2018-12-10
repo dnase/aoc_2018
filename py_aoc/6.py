@@ -1,5 +1,5 @@
 from collections import Counter, defaultdict
-from util import parse_file
+from util import get_data
 
 def parsefunc(s):
     buff = [n.strip() for n in s.split(",")]
@@ -36,7 +36,7 @@ def part1(g, seq):
 def part2(g):
     return sum(g.values())
 
-seq = parse_file("../data/input_6", parsefunc)
+seq = get_data(6, parsefunc)
 
 grid = get_grid(seq)
 

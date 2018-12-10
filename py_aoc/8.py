@@ -1,4 +1,4 @@
-from util import parse_file
+from util import get_data
 
 class node:
     def __init__(self, num_children, num_meta_ent):
@@ -56,7 +56,7 @@ def part2(seq):
     n = get_nodes(seq, 0)[1][0]
     return node_value(n)
 
-seq = [int(c) for c in parse_file("../data/input_8", parsefunc)[0].split()]
+seq = [int(c) for c in get_data(8, parsefunc)[0].split()]
 
 print("P1: ", part1(seq))
 print("P2: ", part2(seq))

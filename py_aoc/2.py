@@ -1,4 +1,4 @@
-from util import parse_file
+from util import get_data
 
 def check2(instr):
     for s in instr:
@@ -52,7 +52,7 @@ def part2(seq):
 def parsefunc(s):
     return s.strip()
 
-seq = parse_file("../data/input_2", parsefunc)
+seq = get_data(2, parsefunc)
 
 print("Q1: %d" % part1(seq))
 print("Q2: %s" % part2(seq))

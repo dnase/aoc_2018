@@ -1,5 +1,5 @@
 import operator
-from util import parse_file
+from util import get_data
 
 global CHARSET
 CHARSET = "abcdefghijklmnopqrstuvwxyz"
@@ -7,7 +7,7 @@ CHARSET = "abcdefghijklmnopqrstuvwxyz"
 def parsefunc(s):
     return s.strip()
 
-seq = parse_file("../data/input_5", parsefunc)[0]
+seq = get_data(5, parsefunc)[0]
 
 def reduce_sequence(seq):
     check_len = len(seq)

@@ -1,10 +1,10 @@
-from util import parse_file
+from util import get_data
 from sets import Set
 
 def parsefunc(s):
     return int(s)
 
-seq = parse_file("../data/input_1", parsefunc)
+seq = get_data(1, parsefunc)
 
 # question 1
 print("Question 1: %d" % sum(seq))

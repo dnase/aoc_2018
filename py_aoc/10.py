@@ -1,4 +1,4 @@
-from util import parse_file
+from util import get_data
 import time
 import re
 
@@ -58,7 +58,7 @@ def part1(seq):
 def part2():
     return True
 
-seq = parse_file("../data/input_10", parsefunc)
+seq = get_data(10, parsefunc)
 
 i = part1(seq)
 

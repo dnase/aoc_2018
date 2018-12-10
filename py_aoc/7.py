@@ -1,5 +1,5 @@
 from sets import Set
-from util import parse_file
+from util import get_data
 from collections import defaultdict
 
 def parsefunc(s):
@@ -55,7 +55,7 @@ def part1(seq):
 def part2(seq):
     return thread_scheduler(part1(seq), seq)
 
-seq = set(parse_file("../data/input_7", parsefunc))
+seq = set(get_data(7, parsefunc))
 
 print("P1: ", part1(seq))
 print("P2: ", part2(seq))
