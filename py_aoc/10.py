@@ -22,9 +22,9 @@ def translate(pm):
     return buff
 
 def printstate(i, pm):
-    map = [[' '] * 200 for j in xrange(400)]
+    map = [[' '] * 200 for j in xrange(200)]
     for p in pm:
-        map[p.y + i * p.vy][p.x + i * p.vx - 250] = '*'
+        map[p.y + i * p.vy][p.x + i * p.vx - 100] = '*'
 
     for m in map:
         print ''.join(m)
