@@ -22,12 +22,12 @@ def translate(pm):
     return buff
 
 def printstate(i, pm):
-    map = [[' '] * 200 for j in xrange(200)]
+    canvas = [[' '] * 200 for j in xrange(200)]
     for p in pm:
-        map[p.y + i * p.vy][p.x + i * p.vx - 100] = '*'
+        canvas[p.y + i * p.vy][p.x + i * p.vx - 100] = '*'
 
-    for m in map:
-        print ''.join(m)
+    for c in canvas:
+        print ''.join(c)
 
 def get_point(line):
     buff = re.match(r"position=<\s*?([\-\d]*),\s*?([\-\d]*)> velocity=<\s*?([\-\d]*),\s*?([\d\-]*)>", line)
