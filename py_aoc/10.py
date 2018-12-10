@@ -42,12 +42,15 @@ def get_pointmap(seq):
 
 def part1(seq):
     pointmap = get_pointmap(seq)
-    buff = pointmap
-    sizes = []
-    for _ in range(20000):
-        buff = translate(buff)
-        sizes.append(size(buff))
-    alignment = sizes.index(min(sizes)) + 1
+    alignment = 10459
+    # uncomment the following to find your alignment time
+    # I hardcoded mine, which was 10459 so that it runs faster.
+    #buff = pointmap
+    #sizes = []
+    #for _ in range(20000):
+    #    buff = translate(buff)
+    #    sizes.append(size(buff))
+    #alignment = sizes.index(min(sizes)) + 1
     printstate(alignment, pointmap)
     return alignment
 
