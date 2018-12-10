@@ -27,14 +27,14 @@ def get_nodes(seq, i):
     return(i + num_meta_ent, nodes)
 
 
-def total_metadata(nodes):#seq, i, metadata):
+def total_metadata(nodes):
     tally = 0
     for n in nodes:
         tally += sum(n.metadata)
         tally += total_metadata(n.child_nodes)
     return tally
 
-def node_value(node):#seq):
+def node_value(node):
     if node.num_children == 0:
         return sum(node.metadata)
     else:
