@@ -22,7 +22,7 @@ def translate(pm):
     return buff
 
 def printstate(i, pm):
-    canvas = [[' '] * 200 for j in xrange(200)]
+    canvas = [[' '] * 200 for _ in xrange(200)]
     for p in pm:
         canvas[p.y + i * p.vy][p.x + i * p.vx - 100] = '*'
 
