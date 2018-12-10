@@ -26,7 +26,6 @@ def get_nodes(seq, i):
     nodes.append(thisnode)
     return(i + num_meta_ent, nodes)
 
-
 def total_metadata(nodes):
     tally = 0
     for n in nodes:
