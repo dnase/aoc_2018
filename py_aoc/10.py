@@ -1,5 +1,4 @@
 from util import get_data
-import time
 import re
 
 class point:
@@ -11,15 +10,6 @@ class point:
 
 def parsefunc(s):
     return s.strip()
-
-def size(pm):
-    return ((max([p.x for p in pm]) - min([p.x for p in pm])) + (max([p.y for p in pm]) - min([p.y for p in pm])))
-
-def translate(pm):
-    buff = []
-    for p in pm:
-        buff.append(point(p.x + p.vx, p.y + p.vy, p.vx, p.vy))
-    return buff
 
 def printstate(i, pm):
     canvas = [[' '] * 200 for _ in xrange(200)]
