@@ -39,6 +39,6 @@ def parsefunc(s):
     buff = [n.strip() for n in s.split(",")]
     return (int(buff[0]), int(buff[1]))
 
-seq = parse_file("../data/input_6", parsefunc)
+seq = get_data(6, parsefunc)
 
 generate_voronoi_diagram(400, 400, len(seq), seq)
